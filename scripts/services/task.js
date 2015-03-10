@@ -36,8 +36,6 @@ app.factory('Task', function (FURL, $firebase, Auth) {
 			return task.status === "open"
 		}
 
-
-
 	};
 
 	return Task;
