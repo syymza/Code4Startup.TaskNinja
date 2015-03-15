@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 app.factory('Offer', function (FURL, $firebase, $q, Auth, Task) {
 
@@ -49,10 +49,13 @@ app.factory('Offer', function (FURL, $firebase, $q, Auth, Task) {
 
 		acceptOffer: function (taskId, offerId, runnerId) {
 			var o = this.getOffer(taskId, offerId);
-			return o.$update({accepted:true}).then(function () {
-				var t = Task.getTask(taskId);
-				return t.$update({status: 'assigned', runner: runnerId});
-			});
+			return o.$update({accepted:true})
+                .then(function () {
+				    var t = Task.getTask(taskId);
+				    return t.$update({status: 'assigned', runner: runnerId});
+			    }).then(function () {
+                    return Task.createUserTask(taskId);
+                });
 		}
 
 	};

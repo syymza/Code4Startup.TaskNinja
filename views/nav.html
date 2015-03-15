@@ -18,7 +18,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="signedIn()"><a ng-href="#/login">Login</a></li>
-        <li ng-hide="signedIn()"><a ng-href="#/register">Register</a></li>
+          <li ng-hide="signedIn()"><a ng-href="#/register">Register</a></li>
 
         <li ng-show="signedIn()" class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -28,13 +28,18 @@
             <span class="mdi-navigation-expand-more"></span>
           </a>
           <ul class="dropdown-menu">
+           <li>
+             <a href="#/dashboard">
+               <i class="mdi-action-assessment"> Dashboard</i>
+             </a>
+            </li>
             <li>
-              <a herf="" data-toggle="modal" data-target="#pasModal">
+              <a href="" data-toggle="modal" data-target="#pasModal">
                 <i class="mdi-action-lock"> Change Password</i>
               </a>
             </li>
             <li>
-              <a herf="" ng-click="logout()">
+              <a href="" ng-click="logout()">
                 <i class="mdi-action-exit-to-app"> Logout</i>
               </a>
             </li>

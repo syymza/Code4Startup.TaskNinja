@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 app.factory('Auth', function (FURL, $firebaseAuth, $firebase) {
 
@@ -32,7 +32,7 @@ app.factory('Auth', function (FURL, $firebaseAuth, $firebase) {
 				return Auth.createProfile(data.uid, user);
 			});
 		},
-		logout: function (user) {
+		logout: function () {
 			return auth.$unauth();
 		},
 		changePassword: function (user) {
@@ -41,7 +41,11 @@ app.factory('Auth', function (FURL, $firebaseAuth, $firebase) {
 
 		signedIn: function () {
 			return !!Auth.user.provider;
-		}
+		},
+
+        requireAuth: function () {
+            return auth.$requireAuth();
+        }
 
 	};
 
